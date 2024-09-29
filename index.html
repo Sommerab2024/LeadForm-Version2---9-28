@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Form Landing Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to an external CSS file -->
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    h2 {
+        text-align: center; /* Center align the <h2> */
+        color: #555;
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+    .header-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+    }
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://raw.githubusercontent.com/Sommerab2024/LeadForm-Version2---9-28/refs/heads/main/Banner%20size%20corrected%20size.jpg" alt="Beautiful Windows and Doors" class="header-image"> <!-- Add your image URL here -->
+    <h1>RVA Window Pros</h1>
+    <h2>Request a FREE ESTIMATE for Your Project</h2>
+    <form id="leadForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="windows">Number of Windows:</label>
+        <input type="text" id="windows" name="windows" required>
+
+        <label for="doors">Number of Doors:</label>
+        <input type="text" id="doors" name="doors" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    document.getElementById('leadForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        const formData = new FormData(this);
+        fetch('https://script.google.com/macros/s/AKfycbxyoSGPcBYThQfaunFWFKlOOdN3nchBkXJSVv7itvOjIYHajiii_aBos7luyVf3Jwj7/exec', {  // Replace with your new URL
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Form submitted successfully!');
+            this.reset(); // Reset form fields
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting the form. Please try again.');
+        });
+    });
+</script>
+
+</body>
+</html>
+
