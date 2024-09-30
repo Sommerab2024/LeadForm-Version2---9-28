@@ -87,11 +87,15 @@
 </div>
 
 <script>
+    if (window.location.host === 'windowprosva.com') {
+        window.location.href = 'https://www.windowprosva.com' + window.location.pathname + window.location.search;
+    }
+
     document.getElementById('leadForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
         
         const formData = new FormData(this);
-        fetch('https://script.google.com/macros/s/AKfycbxyoSGPcBYThQfaunFWFKlOOdN3nchBkXJSVv7itvOjIYHajiii_aBos7luyVf3Jwj7/exec', {  // Replace with your new URL
+        fetch('https://script.google.com/macros/s/AKfycbxyoSGPcBYThQfaunFWFKlOOdN3nchBkXJSVv7itvOjIYHajiii_aBos7luyVf3Jwj7/exec', {
             method: 'POST',
             body: formData
         })
